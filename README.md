@@ -17,4 +17,6 @@ Clone the repo and open the project using Visual Studio.
 git clone git@github.com:Clarifai/quickstart-csharp-uwp-claire.git
 ```
 
+See [PredictionAPI.cs](SampleClarifaiUWP/PredictionAPI.cs) to examine specifically how the Clarifai API is used.
+
 ![screenshot](screenshot.png)

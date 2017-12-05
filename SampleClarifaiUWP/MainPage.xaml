@@ -1,0 +1,79 @@
+﻿<Page
+    x:Class="SampleClarifaiUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SampleClarifaiUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    Margin="10 10 10 0">
+            <Image Source="/Assets/logo.png" MaxHeight="70"></Image>
+            <StackPanel Margin="30 0">
+                <TextBlock FontSize="22"
+                           Text="Your API key:" />
+                <TextBox Name="ApiKeyTextBox"
+                         Width="350"
+                         Margin="0 7"
+                         PlaceholderText="Clarifai API key" />
+                <Button Click="SetKeyButton_OnClick"
+                        FontSize="19">SET</Button>
+            </StackPanel>
+            <StackPanel Margin="0 0">
+                <TextBlock FontSize="22"
+                           Text="Select a concept model: "/>
+                <ComboBox Name="ModelsComboBox"
+                          Width="190"
+                          Margin="0 7"
+                          SelectionChanged="Selector_OnSelectionChanged">
+                    <ComboBoxItem Tag="ApparelModel">Apparel</ComboBoxItem>
+                    <ComboBoxItem Tag="FoodModel">Food</ComboBoxItem>
+                    <ComboBoxItem Tag="GeneralModel" IsSelected="True">General</ComboBoxItem>
+                    <ComboBoxItem Tag="LandscapeQualityModel">Landscape Quality</ComboBoxItem>
+                    <ComboBoxItem Tag="ModerationModel">Moderation</ComboBoxItem>
+                    <ComboBoxItem Tag="NsfwModel">NSFW</ComboBoxItem>
+                    <ComboBoxItem Tag="PortraitQualityModel">Portrait Quality</ComboBoxItem>
+                    <ComboBoxItem Tag="TexturesAndPatternsModel">Textures And Patterns</ComboBoxItem>
+                    <ComboBoxItem Tag="TravelModel">Travel</ComboBoxItem>
+                    <ComboBoxItem Tag="WeddingModel">Wedding</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        <TextBlock Grid.Row="1"
+                   Name="WarningTextBlock"
+                   Foreground="DarkRed"
+                   Margin="6 0"
+                   FontSize="22" />
+        <Grid Grid.Row="2">
+            <CaptureElement Name="PreviewControl" Stretch="Uniform" />
+            <Border Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    Width="330"
+                    Background="Black"
+                    Opacity="0.5">
+                <TextBlock Name="ConceptsTextBlock"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Opacity="1"
+                           Margin="10">
+                </TextBlock>
+            </Border>
+            <Grid Name="CameraGrid"></Grid>
+            <!--<Rectangle Name="FaceRectangle"
+                       Width="200"
+                       Height="100"
+                       Stroke="Blue"
+                       Visibility="Collapsed"
+                       StrokeThickness="5" />-->
+        </Grid>
+    </Grid>
+</Page>
